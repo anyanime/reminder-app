@@ -1,0 +1,18 @@
+{
+  "name": "reminder-app",
+  "version": "1.0.0",
+  "description": "An app that reminds AWLO Management by sms and email to give money to buy light unit 24hours before light goes of in the office",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Reminder",
+    "app"
+  ],
+  "author": "Anyanime Benson",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}

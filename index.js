@@ -4,6 +4,7 @@ const phone = '+2349022631479'
 const smsMessage = 'Good day, This is to inform you that the light unit in the office will finish in the next 24hours. Kindly send money to benson to load the light unit. Thanks In anticipation of your response. -AWLOLECTRIC BOT.'
 const smsFrom = 'AWLO BOT'
 const token = 'IF0WLu86pvylyphsaYMDuYHGRFAbJBBA9h7pF5Is7As5Rq9U1qOLxkGtoSHI'
+const nodemailer = require('nodemailer')
 
 const sendSMS = () => {  
 fetch(
@@ -14,4 +15,24 @@ fetch(
 .catch(err => console.log(err))
 }
 
-sendSMS()
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'bensonanyanime@gmail.com',
+        pass: '09054909290'
+    }
+});
+
+const mailOptions = {
+    from: '"AwWLO BOT" <bensonanyanime@gmail.com>', // sender address
+    to: 'bensonanyanime@gmal.com', // list of receivers
+    subject: 'Light Notification', // Subject line
+    html: '<p>Good day, This is to inform you that in the next 24hours light will go off in the office. Kindly send money to Benson to load the light. Thanks. -AWLO BOT</p>'// plain text body
+  };
+  transporter.sendMail(mailOptions, function (err, info) {
+    if(err)
+      console.log(err)
+    else
+      console.log(info);
+ });
+// sendSMS()

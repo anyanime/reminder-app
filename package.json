@@ -17,6 +17,7 @@
   "author": "Anyanime Benson",
   "license": "ISC",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "nodemailer": "^6.4.6"
   }
 }

@@ -17,23 +17,26 @@ fetch(
 }
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
+        service: process.env.EMAIL_HOST,
+        port: 587,
+        secure: true,
+        auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD
     }
 });
 
-const mailOptions = {
-    from: '"AWLO BOT" ', // sender address
-    to: 'bensonanyanime@gmail.com', // list of receivers
+const mailMessage = {
+    from: '"AWLO BOT"', // sender address
+    to: 'benson@stbensonimoh.com', // list of receivers
     subject: 'Light Notification', // Subject line
     html: '<p>Good day, This is to inform you that in the next 24hours light will go off in the office. Kindly send money to Benson to load the light. Thanks. -AWLO BOT</p>'// plain text body
   };
-  transporter.sendMail(mailOptions, function (err, info) {
+  
+  transporter.sendMail(mailMessage, function (err, info) {
     if(err)
       console.log(err)
     else
       console.log(info);
- });
+ })
 // sendSMS()

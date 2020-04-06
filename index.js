@@ -1,7 +1,7 @@
 "use strict"
 const fetch = require('node-fetch')
 const phone = '+2349022631479'
-const smsMessage = 'Good day, This is to inform you that the light unit in the office will finish in the next 24hours. Kindly send money to benson to load the light unit. Thanks In anticipation of your response. -AWLOLECTRIC BOT.'
+const smsMessage = 'Oops AWLO office is running out of light units! There will be power-outage in 24 hours. Load more units now.  -AWLOLECTRIC BOT.'
 const smsFrom = 'AWLO BOT'
 const token = 'IF0WLu86pvylyphsaYMDuYHGRFAbJBBA9h7pF5Is7As5Rq9U1qOLxkGtoSHI'
 const nodemailer = require('nodemailer')
@@ -27,16 +27,17 @@ const transporter = nodemailer.createTransport({
 });
 
 const mailMessage = {
-    from: '"AWLO BOT"', // sender address
-    to: 'benson@stbensonimoh.com', // list of receivers
+    from: '"AWLO ELECTRICITY BOT"', // sender address
+    to: 'bensonanyanime@gmail.com, me@ekeminiakpakpan.com', // list of receivers
     subject: 'Light Notification', // Subject line
-    html: '<p>Good day, This is to inform you that in the next 24hours light will go off in the office. Kindly send money to Benson to load the light. Thanks. -AWLO BOT</p>'// plain text body
+  html: '<p>Oops AWLO office is running out of light units! There will be power-outage in 24 hours. Load more units now. -AWLO BOT</p>'// plain text body
   };
   
-  transporter.sendMail(mailMessage, function (err, info) {
+ const sendMail = transporter.sendMail(mailMessage, function (err, info) {
     if(err)
       console.log(err)
     else
       console.log(info);
  })
+
 // sendSMS()
